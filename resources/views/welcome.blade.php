@@ -81,7 +81,6 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <!-- <div><img src="/svg/preprLogo.svg" style="max height:25px"></div> -->
                     <div>Prepr Lab Finder</div>
                 </div>
 
