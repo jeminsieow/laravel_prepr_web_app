@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 require __DIR__ . '/vendor/autoload.php';
 
 /*if (php_sapi_name() != 'cli') {
@@ -70,7 +73,7 @@ $range = 'Coworker!A2:Q';
 $response = $service->spreadsheets_values->get($spreadsheetId, $range);
 $values = $response->getValues();
 
-
+$_SESSION['value'] = $values;
 
 /*if (empty($values)) {
     print "No data found.\n";
