@@ -69,6 +69,7 @@
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Find Labs</a>
+                        <a href="{{ url('/maps') }}">Maps</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
