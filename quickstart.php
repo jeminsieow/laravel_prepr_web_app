@@ -1,9 +1,9 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
-if (php_sapi_name() != 'cli') {
+/*if (php_sapi_name() != 'cli') {
     throw new Exception('This application must be run on the command line.');
-}
+}*/
 
 /**
  * Returns an authorized API client.
@@ -63,14 +63,16 @@ function getClient()
 $client = getClient();
 $service = new Google_Service_Sheets($client);
 
-// Prints the names and majors of students in a sample spreadsheet:
-// https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
+// Get values from copy of Android Challenge data:
+// https://docs.google.com/spreadsheets/d/1ndn_fpv0iLUmcKC7BR5TKZmzQENl-0N0rTM2u2i8Bu0/edit#gid=0
 $spreadsheetId = '1ndn_fpv0iLUmcKC7BR5TKZmzQENl-0N0rTM2u2i8Bu0';
 $range = 'Coworker!A2:Q';
 $response = $service->spreadsheets_values->get($spreadsheetId, $range);
 $values = $response->getValues();
 
-if (empty($values)) {
+
+
+/*if (empty($values)) {
     print "No data found.\n";
 } else {
     print "Name, Major:\n";
@@ -78,4 +80,4 @@ if (empty($values)) {
         // Print columns A and E, which correspond to indices 0 and 4.
         printf("%s, %s\n", $row[0], $row[4]);
     }
-}
+}*/
