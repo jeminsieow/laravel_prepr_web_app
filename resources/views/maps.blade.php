@@ -26,7 +26,7 @@
 * Retrieved values from Google API Explorer here:
 * https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/get?apix_params=%7B%22spreadsheetId%22%3A%221ndn_fpv0iLUmcKC7BR5TKZmzQENl-0N0rTM2u2i8Bu0%22%2C%22range%22%3A%22Coworker!A2%3AQ%22%7D
 *
-* Still figuring out how to transfer the $values variable from quickstart.php to maps.blade.php
+* Still figuring out how to transfer the $values variable from get-data.php to maps.blade.php
 * Set placeholder values as values variable. 
 *
 */
