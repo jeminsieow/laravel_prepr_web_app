@@ -1,14 +1,39 @@
-<?php
+<!DOCTYPE html>
+<html> 
+<head> 
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <title>Prepr Map</title> 
+    <script src="http://maps.google.com/maps/api/js?sensor=false" 
+            type="text/javascript"></script>
+</head> 
+<body>
+  <div id="map"></div>
+
+  <script type="text/javascript">
+
 /**
 * Retrieved values from Google API Explorer here:
 * https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/get?apix_params=%7B%22spreadsheetId%22%3A%221ndn_fpv0iLUmcKC7BR5TKZmzQENl-0N0rTM2u2i8Bu0%22%2C%22range%22%3A%22Coworker!A2%3AQ%22%7D
 *
 * Still figuring out how to transfer the $values variable from quickstart.php to maps.blade.php
-* Set placeholder values as $values variable. 
+* Set placeholder values as values variable. 
 *
 */
-
-$values = [
+    var values = [
     [
       "labmanager",
       "",
@@ -581,45 +606,9 @@ $values = [
     ]
   ]
 
-?>
-
-<!DOCTYPE html>
-<html> 
-<head> 
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-    <title>Google Maps Multiple Markers</title> 
-    <script src="http://maps.google.com/maps/api/js?sensor=false" 
-            type="text/javascript"></script>
-</head> 
-<body>
-  <div id="map"></div>
-
-  <script type="text/javascript">
-    var locations = [
-      ['Bondi Beach', -33.890542, 151.274856, 4],
-      ['Coogee Beach', -33.923036, 151.259052, 5],
-      ['Cronulla Beach', -34.028249, 151.157507, 3],
-      ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-      ['Maroubra Beach', -33.950198, 151.259302, 1]
-    ];
-
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 10,
-      center: new google.maps.LatLng(-33.92, 151.25),
+      center: new google.maps.LatLng(31.22, 121.45),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
@@ -627,19 +616,21 @@ $values = [
 
     var marker, i;
 
-    for (i = 0; i < locations.length; i++) {  
+    for (i = 0; i < values.length; i++) {  
       marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        position: new google.maps.LatLng(values[i][7], values[i][8]),
         map: map
       });
 
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
-          infowindow.setContent(locations[i][0]);
+          infowindow.setContent(values[i][2]);
           infowindow.open(map, marker);
         }
       })(marker, i));
     }
   </script>
+
+  
 </body>
 </html>
